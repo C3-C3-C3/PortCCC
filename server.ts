@@ -7,77 +7,14 @@ import { createServer as createViteServer } from 'vite';
 const app = express();
 const PORT = process.env.PORT ? parseInt(process.env.PORT, 10) : 3000;
 
-// Ensure uploads, public, and media-cache folders exist
-const publicDir = path.join(process.cwd(), 'public');
-const uploadsDir = path.join(publicDir, 'uploads');
+// Ensure media-cache folder exists for external image/video proxying
 const mediaCacheDir = path.join(process.cwd(), 'media-cache');
-const dataFilePath = path.join(publicDir, 'portfolio-data.json');
 
-if (!fs.existsSync(publicDir)) {
-  fs.mkdirSync(publicDir, { recursive: true });
-}
-if (!fs.existsSync(uploadsDir)) {
-  fs.mkdirSync(uploadsDir, { recursive: true });
-}
 if (!fs.existsSync(mediaCacheDir)) {
   fs.mkdirSync(mediaCacheDir, { recursive: true });
 }
 
-// Support JSON parsing with a large limit for base64 file uploads
-app.use(express.json({ limit: '100mb' }));
-
-// API endpoint to get portfolio data
-app.get('/api/portfolio', (req, res) => {
-  try {
-    if (fs.existsSync(dataFilePath)) {
-      const data = fs.readFileSync(dataFilePath, 'utf8');
-      return res.json(JSON.parse(data));
-    }
-  } catch (err) {
-    console.error('Error reading portfolio-data.json:', err);
-  }
-  // Return empty/defaults if file doesn't exist
-  return res.json({ projects: null, customLogo: null });
-});
-
-// API endpoint to save portfolio data
-app.post('/api/portfolio', (req, res) => {
-  try {
-    const { projects, customLogo } = req.body;
-    fs.writeFileSync(dataFilePath, JSON.stringify({ projects, customLogo }, null, 2), 'utf8');
-    return res.json({ success: true });
-  } catch (err: any) {
-    console.error('Error writing portfolio-data.json:', err);
-    return res.status(500).json({ error: err.message });
-  }
-});
-
-// API endpoint to upload files via base64
-app.post('/api/upload', (req, res) => {
-  try {
-    const { filename, fileData } = req.body;
-    if (!filename || !fileData) {
-      return res.status(400).json({ error: 'Filename and fileData are required' });
-    }
-
-    // Clean filename to prevent path traversal
-    const safeFilename = path.basename(filename).replace(/[^a-zA-Z0-9.\-_]/g, '_');
-    const uniqueFilename = `${Date.now()}-${safeFilename}`;
-    const filePath = path.join(uploadsDir, uniqueFilename);
-
-    // Write binary file from base64
-    const buffer = Buffer.from(fileData, 'base64');
-    fs.writeFileSync(filePath, buffer);
-
-    const relativeUrl = `/uploads/${uniqueFilename}`;
-    console.log(`Saved file: ${filePath} -> ${relativeUrl}`);
-    return res.json({ url: relativeUrl });
-  } catch (err: any) {
-    console.error('Error uploading file:', err);
-    return res.status(500).json({ error: err.message });
-  }
-});
-
+app.use(express.json());
 
 // API endpoint to proxy external images/videos (like Google Drive) with disk caching and range streaming
 app.get('/api/proxy-image', async (req: express.Request, res: express.Response) => {
@@ -172,9 +109,6 @@ app.get('/api/media-type', async (req: express.Request, res: express.Response) =
     return res.json({ type: 'image', error: err.message });
   }
 });
-
-// Serve uploads folder statically
-app.use('/uploads', express.static(uploadsDir));
 
 // Vite development middleware vs Static Production files
 async function setupVite() {
