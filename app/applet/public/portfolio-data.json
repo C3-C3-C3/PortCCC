@@ -1,0 +1,78 @@
+{
+  "projects": [
+    {
+      "id": "1",
+      "title": "Branding",
+      "tags": "Branding · Identidad Visual",
+      "color": "#D93E30",
+      "gradient": "linear-gradient(135deg, #1BF2A3 0%, #D93E30 100%)",
+      "details": "Análisis estratégica y diseño de marca.",
+      "image": "/uploads/1er_proyecto/Caratula.jpg",
+      "images": [
+        "/uploads/1er_proyecto/Caratula.jpg",
+        "/uploads/1er_proyecto/Behance2.jpg",
+        "/uploads/1er_proyecto/Behance24.jpg",
+        "/uploads/1er_proyecto/Free_Beer_Bottle_Mockup_2.png",
+        "/uploads/1er_proyecto/Mesa_de_trabajo_1@2x.png",
+        "/uploads/1er_proyecto/Tag_Mockup.jpg"
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Opening - B/side",
+      "tags": "Motion Grafiphics",
+      "color": "#1BF2A3",
+      "gradient": "linear-gradient(135deg, #699EBF 0%, #1BF2A3 100%)",
+      "details": "Exploración de ritmo y morfología en animación tridimensional interactiva.",
+      "image": "",
+      "video": "/uploads/1784869539335-migrated-project-2-video.mp4"
+    },
+    {
+      "id": "3",
+      "title": "Campaña de concientisacion para la seguridad ",
+      "tags": "Video - Story Board - Animación",
+      "color": "#699EBF",
+      "gradient": "linear-gradient(135deg, #D93E30 0%, #699EBF 100%)",
+      "details": "Dirección de arte e ilustración para la edición de colección de Revista Montevideo.",
+      "image": "",
+      "video": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"
+    },
+    {
+      "id": "4",
+      "title": "Social Archive",
+      "tags": "Digital Content · Social Media",
+      "color": "#D93E30",
+      "gradient": "linear-gradient(135deg, #1BF2A3 0%, #699EBF 100%)",
+      "details": "Campaña interactiva y diseño de cuadrículas editoriales digitales para plataformas.",
+      "image": "/uploads/migrated-project-4-1784255246535.jpg",
+      "images": [
+        "/uploads/migrated-project-4-1784255246535.jpg"
+      ]
+    },
+    {
+      "id": "5",
+      "title": "Diseño de merchandising",
+      "tags": "Imprecion en tela - Diseño ergonómico - Branding aplicado - Merchandising ",
+      "color": "#1BF2A3",
+      "gradient": "linear-gradient(135deg, #D93E30 0%, #1BF2A3 100%)",
+      "details": "Estudio de concepto y aplicación marcaria estratégica para impactar en el día a día de tus usuarios y compradores.",
+      "image": "/uploads/1784869559685-migrated-project-5-image.png",
+      "images": [
+        "/uploads/1784869559685-migrated-project-5-image.png"
+      ]
+    },
+    {
+      "id": "6",
+      "title": "Game Maker - Ilustración UI",
+      "tags": "Ilustración - 3D - Concept Art",
+      "color": "#699EBF",
+      "gradient": "linear-gradient(135deg, #699EBF 0%, #D93E30 100%)",
+      "details": "Composición y conceptualización de ilustraciones complejas para uso web.",
+      "image": "/uploads/1784869560910-migrated-project-6-image.png",
+      "images": [
+        "/uploads/1784869560910-migrated-project-6-image.png"
+      ]
+    }
+  ],
+  "customLogo": ""
+}

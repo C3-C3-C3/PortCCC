@@ -1,0 +1,95 @@
+{
+  "projects": [
+    {
+      "id": "1",
+      "title": "Branding",
+      "tags": "Branding · Identidad Visual",
+      "color": "#D93E30",
+      "gradient": "linear-gradient(135deg, #1BF2A3 0%, #D93E30 100%)",
+      "details": "Análisis estratégica y diseño de marca.",
+      "image": "https://drive.google.com/file/d/1zLgQG4x9zjvPKCfe_9CAwGLjVsCDEhJ8/view?usp=drive_link",
+      "images": [
+        "https://drive.google.com/file/d/1zLgQG4x9zjvPKCfe_9CAwGLjVsCDEhJ8/view?usp=drive_link",
+        "https://drive.google.com/file/d/1sk6kyEidTrqrlwjIqzFSv5ffBV1wwd8i/view?usp=drive_link",
+        "https://drive.google.com/file/d/1RV7n3K8X-NWHOVS8xvoWgIHb8s-wVIkF/view?usp=drive_link",
+        "https://drive.google.com/file/d/1cGHDHd1St-zfT2U_6hWaNSKBtMi4zdph/view?usp=drive_link",
+        "https://drive.google.com/file/d/1PBf5ER8YVcxxTCyXHNgVkUN41eV72KkN/view?usp=drive_link"
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Opening - B/side",
+      "tags": "Motion Grafiphics",
+      "color": "#1BF2A3",
+      "gradient": "linear-gradient(135deg, #699EBF 0%, #1BF2A3 100%)",
+      "details": "Exploración de ritmo y morfología en animación tridimensional interactiva.",
+      "image": "https://drive.google.com/file/d/1JuzWbjxGGqNmBWekLODgw-4saL6nHp0B/view?usp=drive_link",
+      "video": "https://drive.google.com/file/d/15o5Sh7MGyC9vC-zMbcQfkU3OGMGE8ZG4/view?usp=drive_link",
+      "images": [
+        "https://drive.google.com/file/d/1JuzWbjxGGqNmBWekLODgw-4saL6nHp0B/view?usp=drive_link",
+        "https://drive.google.com/file/d/1NC4_o7HTrpLmDKfehrdhPFo39I0N-653/view?usp=drive_link"
+      ]
+    },
+    {
+      "id": "3",
+      "title": "Campaña de concientisacion para la seguridad ",
+      "tags": "Video - Story Board - Animación",
+      "color": "#699EBF",
+      "gradient": "linear-gradient(135deg, #D93E30 0%, #699EBF 100%)",
+      "details": "Dirección de arte e ilustración para la edición de colección de Revista Montevideo.",
+      "video": "https://drive.google.com/file/d/1MHMlndrs7iJetPtrefTMbB7SwkcvKXmH/view?usp=drive_link",
+      "videos": [
+        "https://drive.google.com/file/d/1MHMlndrs7iJetPtrefTMbB7SwkcvKXmH/view?usp=drive_link",
+        "https://drive.google.com/file/d/1acS299paZ1Qo3OnEK0saiuBNxVx00z8f/view?usp=drive_link",
+        "https://drive.google.com/file/d/1F8yivIuy_GY7nVjOfsJL8JAh_4Hvk5Jl/view?usp=drive_link",
+        "https://drive.google.com/file/d/17hkgxw8t2oNh4WX6QOV2bGwdiW5_u7Ww/view?usp=drive_link",
+        "https://drive.google.com/file/d/1-aifqXkRSn19z66Imj2sJTSqtENtW3wy/view?usp=drive_link"
+      ]
+    },
+    {
+      "id": "4",
+      "title": "Social Archive",
+      "tags": "Digital Content · Social Media",
+      "color": "#D93E30",
+      "gradient": "linear-gradient(135deg, #1BF2A3 0%, #699EBF 100%)",
+      "details": "Campaña interactiva y diseño de cuadrículas editoriales digitales para plataformas.",
+      "image": "https://drive.google.com/file/d/1Brlfu9BNF9kU1zq6T9NTNhmC3ta1ypGK/view?usp=drive_link",
+      "images": [
+        "https://drive.google.com/file/d/1Brlfu9BNF9kU1zq6T9NTNhmC3ta1ypGK/view?usp=drive_link",
+        "https://drive.google.com/file/d/1IK751vGA_g-hwG8SIpaA2z1GBtjD9ppd/view?usp=drive_link",
+        "https://drive.google.com/file/d/14s_Tl2--9GZuucwfwft8MoPVUVTFEhP0/view?usp=drive_link",
+        "https://drive.google.com/file/d/1u6K8V_JvuX3LMmeWxbDUyC9XBGN0zY07/view?usp=drive_link",
+        "https://drive.google.com/file/d/1lNfmkO4K6sfRzF-JCnUZMw6loHOG-4fq/view?usp=drive_link"
+      ]
+    },
+    {
+      "id": "5",
+      "title": "Diseño de merchandising",
+      "tags": "Imprecion en tela - Diseño ergonómico - Branding aplicado - Merchandising ",
+      "color": "#1BF2A3",
+      "gradient": "linear-gradient(135deg, #D93E30 0%, #1BF2A3 100%)",
+      "details": "Estudio de concepto y aplicación marcaria estratégica para impactar en el día a día de tus usuarios y compradores.",
+      "image": "https://drive.google.com/file/d/1F1xTUh_P1RB-iVRhdyqK6sldQq2_u5dQ/view?usp=drive_link",
+      "images": [
+        "https://drive.google.com/file/d/1F1xTUh_P1RB-iVRhdyqK6sldQq2_u5dQ/view?usp=drive_link",
+        "https://drive.google.com/file/d/1wkx9dyIDxN9aeosErRzrgIaPz9rTKoHT/view?usp=drive_link",
+        "https://drive.google.com/file/d/1V9of14OQMTVHKJEYikI9kRVo0WFKUsGG/view?usp=drive_link",
+        "https://drive.google.com/file/d/1Eq3wzG4qLFgS6lM1VoCfh7sclbou7lHG/view?usp=drive_link",
+        "https://drive.google.com/file/d/1Tbk35euBNS0-5S7uyD9L-sV8IXlDlapk/view?usp=drive_link"
+      ]
+    },
+    {
+      "id": "6",
+      "title": "Game Maker - Ilustración UI",
+      "tags": "Ilustración - 3D - Concept Art",
+      "color": "#699EBF",
+      "gradient": "linear-gradient(135deg, #699EBF 0%, #D93E30 100%)",
+      "details": "Composición y conceptualización de ilustraciones complejas para uso web.",
+      "image": "https://drive.google.com/file/d/1OatAvMvDIDaR4agcdDs2VWJZjdLylH8h/view?usp=drive_link",
+      "images": [
+        "https://drive.google.com/file/d/1OatAvMvDIDaR4agcdDs2VWJZjdLylH8h/view?usp=drive_link",
+        "https://drive.google.com/file/d/1GaDac68Xp5_VtujLkuPUmkMUsjLEM8SP/view?usp=drive_link"
+      ]
+    }
+  ]
+}

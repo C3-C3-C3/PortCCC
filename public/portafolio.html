@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Camilo Clavera — Portafolio Standalone</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Playfair+Display:ital,wght@0,400;1,400;1,700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind Play CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Custom Tailwind Configuration -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'brand-red': '#D93E30',
+            'brand-green': '#1BF2A3',
+            'brand-blue': '#699EBF',
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Custom Scrollbar */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    
+    /* Custom Cursor styles */
+    body {
+      cursor: none;
+    }
+    a, button, [role="button"] {
+      cursor: none;
+    }
+
+    /* Keyframe animations for spinning rings */
+    @keyframes spin-cw {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    @keyframes spin-ccw {
+      0% { transform: rotate(360deg); }
+      100% { transform: rotate(0deg); }
+    }
+    .animate-spin-cw {
+      animation: spin-cw 18s linear infinite;
+    }
+    .animate-spin-ccw {
+      animation: spin-ccw 30s linear infinite;
+    }
+  </style>
+</head>
+<body class="relative w-screen h-screen overflow-hidden bg-white select-none text-brand-red font-sans">
+
+  <!-- UNICORN STUDIO BACKGROUND -->
+  <div id="background-container" class="fixed inset-0 z-0 transition-opacity duration-1000 ease-in-out">
+    <div data-us-project="ijyWmNHlmbzEktyoP96v" style="width: 100%; height: 100%; pointer-events: none;"></div>
+    <!-- Capa blanca con opacidad al 90% -->
+    <div class="absolute inset-0 bg-white/90 pointer-events-none z-10"></div>
+  </div>
+
+  <!-- FLOATING CUSTOM CURSOR -->
+  <div id="custom-cursor" class="fixed w-4 h-4 bg-brand-red rounded-full pointer-events-none z-[100] -translate-x-1/2 -translate-y-1/2 transition-all duration-75 mix-blend-difference hidden md:block"></div>
+
+  <!-- NAVIGATION -->
+  <nav id="nav-system" class="fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-in-out h-24 opacity-100 translate-y-0">
+    <!-- Interactive Logo -->
+    <div id="interactive-logo" class="absolute top-6 left-6 md:left-10 flex flex-col gap-3.5 select-none font-sans font-bold text-sm tracking-[0.1em] text-brand-red cursor-none">
+      
+      <!-- CAMILO Column -->
+      <div class="flex flex-col items-center">
+        <span>C</span>
+        <div id="logo-camilo" class="flex flex-col items-center overflow-hidden transition-all duration-700 max-h-0 opacity-0 mt-0">
+          <span class="text-brand-blue">A</span>
+          <span class="text-brand-blue">M</span>
+          <span class="text-brand-blue">I</span>
+          <span class="text-brand-blue">L</span>
+          <span class="text-brand-blue">O</span>
+        </div>
+      </div>
+
+      <!-- CLAVERA Column -->
+      <div class="flex flex-col items-center">
+        <span>C</span>
+        <div id="logo-clavera" class="flex flex-col items-center overflow-hidden transition-all duration-700 max-h-0 opacity-0 mt-0">
+          <span class="text-brand-blue">L</span>
+          <span class="text-brand-blue">A</span>
+          <span class="text-brand-blue">V</span>
+          <span class="text-brand-blue">E</span>
+          <span class="text-brand-blue">R</span>
+          <span class="text-brand-blue">A</span>
+        </div>
+      </div>
+
+      <!-- CALLERO Column -->
+      <div class="flex flex-col items-center">
+        <span>C</span>
+        <div id="logo-callero" class="flex flex-col items-center overflow-hidden transition-all duration-700 max-h-0 opacity-0 mt-0">
+          <span class="text-brand-blue">A</span>
+          <span class="text-brand-blue">L</span>
+          <span class="text-brand-blue">L</span>
+          <span class="text-brand-blue">E</span>
+          <span class="text-brand-blue">R</span>
+          <span class="text-brand-blue">O</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PANEL 1: HERO SECTION -->
+  <section id="panel-hero" class="absolute inset-0 h-screen flex flex-col items-center justify-center text-center z-10 pointer-events-none transition-all duration-750 ease-out">
+    <!-- Parallax 3D Outline Text -->
+    <div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none select-none z-0 opacity-30 overflow-hidden" style="perspective: 1000px;">
+      <div id="parallax-text" class="font-serif italic text-center leading-[0.8] text-[16vw] md:text-[12vw] uppercase text-transparent select-none transition-transform duration-300 ease-out"
+           style="-webkit-text-stroke: 1.5px #1BF2A3; filter: drop-shadow(0 0 8px rgba(27,242,163,0.6)) drop-shadow(0 0 20px rgba(27,242,163,0.3)); transform-style: preserve-3d;">
+        DESIGN<br />& MOTION
+      </div>
+    </div>
+
+    <!-- Main Title Content -->
+    <h1 class="relative z-10 font-sans font-black text-brand-red leading-[0.7] md:leading-[0.72] tracking-tight text-[11vw] md:text-[8vw] uppercase select-none pointer-events-auto">
+      <span class="scramble-hover inline-block" data-text="DESIGN">DESIGN</span><br />
+      <span class="scramble-hover inline-block" data-text="& MOTION">& MOTION</span>
+    </h1>
+    <p class="relative z-10 mt-6 font-sans text-xs md:text-sm font-bold text-brand-blue uppercase tracking-[0.15em] pointer-events-auto">
+      Diseño gráfico · Animación · Ilustración · Montevideo, UY
+    </p>
+
+    <!-- Scroll Hint -->
+    <div class="absolute bottom-10 flex flex-col items-center gap-2 z-10 animate-bounce pointer-events-auto cursor-pointer" onclick="goToProjects()">
+      <span class="font-sans text-[10px] font-bold text-brand-red tracking-[0.15em] uppercase">
+        Scroll ↓
+      </span>
+    </div>
+  </section>
+
+  <!-- PANEL 2: PORTFOLIO GRID PANEL -->
+  <div id="panel-projects" class="fixed left-0 right-0 h-screen bg-white shadow-[0_-20px_60px_rgba(27,242,163,0.15),0_-4px_20px_rgba(105,158,191,0.1)] z-30 flex flex-col rounded-t-xl overflow-hidden border-t border-brand-green/20 transition-all duration-800 ease-[cubic-bezier(0.77,0,0.175,1)]"
+       style="top: 100vh;">
+    <!-- Project Header -->
+    <div class="flex justify-between items-center px-6 md:px-10 py-5 border-b border-brand-green/15 shrink-0 bg-white z-20">
+      <h2 class="font-sans text-xl md:text-2xl font-black text-brand-red uppercase tracking-tight">
+        Proyectos destacados
+      </h2>
+      <button onclick="goToServices()" class="font-sans text-[11px] font-bold tracking-[0.1em] hover:tracking-[0.2em] text-brand-blue hover:text-brand-red uppercase transition-all duration-500 ease-out border-none bg-transparent cursor-none transform hover:-skew-x-12 origin-center">
+        Servicios & Sobre mí →
+      </button>
+    </div>
+
+    <!-- Scrollable grid -->
+    <div id="projects-scroll-wrapper" class="flex-1 overflow-y-auto no-scrollbar px-6 md:px-10 py-8 pb-20 md:pb-24">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10 pb-6 md:pb-8">
+        <!-- Card 1 -->
+        <div class="group relative flex flex-col justify-between border border-brand-green/10 rounded-sm p-6 overflow-hidden transition-all duration-500 ease-out hover:shadow-[0_8px_30px_rgba(27,242,163,0.15)] bg-white h-[280px]">
+          <div class="absolute inset-0 bg-gradient-to-br from-brand-green/5 to-brand-red/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="relative z-10 flex justify-between items-start">
+            <span class="font-sans text-[11px] font-extrabold tracking-widest text-brand-blue uppercase">01</span>
+            <span class="font-sans text-[10px] font-bold tracking-wider text-brand-blue/60 uppercase">Montevideo, UY</span>
+          </div>
+          <div class="relative z-10 my-auto">
+            <h3 class="font-sans text-xl md:text-2xl font-black text-brand-red uppercase tracking-tight transition-all duration-500 group-hover:-skew-x-12 group-hover:translate-x-2">Sfera Branding</h3>
+            <p class="font-sans text-[11px] font-bold text-brand-blue mt-1.5 uppercase tracking-wider">Branding · Identidad Visual</p>
+          </div>
+          <div class="relative z-10 flex justify-between items-center pt-4 border-t border-brand-green/10">
+            <p class="text-[11px] text-gray-500 font-medium">Rediseño de marca integral y packaging sostenible.</p>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="group relative flex flex-col justify-between border border-brand-green/10 rounded-sm p-6 overflow-hidden transition-all duration-500 ease-out hover:shadow-[0_8px_30px_rgba(27,242,163,0.15)] bg-white h-[280px]">
+          <div class="absolute inset-0 bg-gradient-to-br from-brand-blue/5 to-brand-green/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="relative z-10 flex justify-between items-start">
+            <span class="font-sans text-[11px] font-extrabold tracking-widest text-brand-blue uppercase">02</span>
+            <span class="font-sans text-[10px] font-bold tracking-wider text-brand-blue/60 uppercase">Montevideo, UY</span>
+          </div>
+          <div class="relative z-10 my-auto">
+            <h3 class="font-sans text-xl md:text-2xl font-black text-brand-red uppercase tracking-tight transition-all duration-500 group-hover:-skew-x-12 group-hover:translate-x-2">Kinetic Loops</h3>
+            <p class="font-sans text-[11px] font-bold text-brand-blue mt-1.5 uppercase tracking-wider">Motion Design · Loop 3D</p>
+          </div>
+          <div class="relative z-10 flex justify-between items-center pt-4 border-t border-brand-green/10">
+            <p class="text-[11px] text-gray-500 font-medium">Exploración de ritmo y morfología en animación 3D.</p>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="group relative flex flex-col justify-between border border-brand-green/10 rounded-sm p-6 overflow-hidden transition-all duration-500 ease-out hover:shadow-[0_8px_30px_rgba(27,242,163,0.15)] bg-white h-[280px]">
+          <div class="absolute inset-0 bg-gradient-to-br from-brand-red/5 to-brand-blue/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="relative z-10 flex justify-between items-start">
+            <span class="font-sans text-[11px] font-extrabold tracking-widest text-brand-blue uppercase">03</span>
+            <span class="font-sans text-[10px] font-bold tracking-wider text-brand-blue/60 uppercase">Montevideo, UY</span>
+          </div>
+          <div class="relative z-10 my-auto">
+            <h3 class="font-sans text-xl md:text-2xl font-black text-brand-red uppercase tracking-tight transition-all duration-500 group-hover:-skew-x-12 group-hover:translate-x-2">Editorial Folio</h3>
+            <p class="font-sans text-[11px] font-bold text-brand-blue mt-1.5 uppercase tracking-wider">Ilustración · Prensa</p>
+          </div>
+          <div class="relative z-10 flex justify-between items-center pt-4 border-t border-brand-green/10">
+            <p class="text-[11px] text-gray-500 font-medium">Dirección de arte e ilustración para Revista Montevideo.</p>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="group relative flex flex-col justify-between border border-brand-green/10 rounded-sm p-6 overflow-hidden transition-all duration-500 ease-out hover:shadow-[0_8px_30px_rgba(27,242,163,0.15)] bg-white h-[280px]">
+          <div class="absolute inset-0 bg-gradient-to-br from-brand-green/5 to-brand-blue/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="relative z-10 flex justify-between items-start">
+            <span class="font-sans text-[11px] font-extrabold tracking-widest text-brand-blue uppercase">04</span>
+            <span class="font-sans text-[10px] font-bold tracking-wider text-brand-blue/60 uppercase">Montevideo, UY</span>
+          </div>
+          <div class="relative z-10 my-auto">
+            <h3 class="font-sans text-xl md:text-2xl font-black text-brand-red uppercase tracking-tight transition-all duration-500 group-hover:-skew-x-12 group-hover:translate-x-2">Social Archive</h3>
+            <p class="font-sans text-[11px] font-bold text-brand-blue mt-1.5 uppercase tracking-wider">Digital Content</p>
+          </div>
+          <div class="relative z-10 flex justify-between items-center pt-4 border-t border-brand-green/10">
+            <p class="text-[11px] text-gray-500 font-medium">Campaña interactiva y retículas editoriales digitales.</p>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="group relative flex flex-col justify-between border border-brand-green/10 rounded-sm p-6 overflow-hidden transition-all duration-500 ease-out hover:shadow-[0_8px_30px_rgba(27,242,163,0.15)] bg-white h-[280px]">
+          <div class="absolute inset-0 bg-gradient-to-br from-brand-red/5 to-brand-green/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="relative z-10 flex justify-between items-start">
+            <span class="font-sans text-[11px] font-extrabold tracking-widest text-brand-blue uppercase">05</span>
+            <span class="font-sans text-[10px] font-bold tracking-wider text-brand-blue/60 uppercase">Montevideo, UY</span>
+          </div>
+          <div class="relative z-10 my-auto">
+            <h3 class="font-sans text-xl md:text-2xl font-black text-brand-red uppercase tracking-tight transition-all duration-500 group-hover:-skew-x-12 group-hover:translate-x-2">Typography Exp</h3>
+            <p class="font-sans text-[11px] font-bold text-brand-blue mt-1.5 uppercase tracking-wider">Poster Design</p>
+          </div>
+          <div class="relative z-10 flex justify-between items-center pt-4 border-t border-brand-green/10">
+            <p class="text-[11px] text-gray-500 font-medium">Póster tipográfico serigrafiado explorando letras góticas.</p>
+          </div>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="group relative flex flex-col justify-between border border-brand-green/10 rounded-sm p-6 overflow-hidden transition-all duration-500 ease-out hover:shadow-[0_8px_30px_rgba(27,242,163,0.15)] bg-white h-[280px]">
+          <div class="absolute inset-0 bg-gradient-to-br from-brand-blue/5 to-brand-red/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="relative z-10 flex justify-between items-start">
+            <span class="font-sans text-[11px] font-extrabold tracking-widest text-brand-blue uppercase">06</span>
+            <span class="font-sans text-[10px] font-bold tracking-wider text-brand-blue/60 uppercase">Montevideo, UY</span>
+          </div>
+          <div class="relative z-10 my-auto">
+            <h3 class="font-sans text-xl md:text-2xl font-black text-brand-red uppercase tracking-tight transition-all duration-500 group-hover:-skew-x-12 group-hover:translate-x-2">Cinematic Reel</h3>
+            <p class="font-sans text-[11px] font-bold text-brand-blue mt-1.5 uppercase tracking-wider">Video & Motion</p>
+          </div>
+          <div class="relative z-10 flex justify-between items-center pt-4 border-t border-brand-green/10">
+            <p class="text-[11px] text-gray-500 font-medium">Montaje audiovisual y secuencias cinemáticas experimentales.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PANEL 3: SERVICES & CONTACT PANEL -->
+  <div id="panel-services" class="fixed top-0 left-0 right-0 bottom-0 h-screen bg-transparent z-40 transition-transform duration-750 ease-[cubic-bezier(0.77,0,0.175,1)] flex flex-col justify-between translate-y-full">
+    
+    <!-- Back Button -->
+    <button onclick="goToProjects()" class="absolute top-6 left-6 md:left-10 z-50 font-sans text-[11px] font-bold tracking-[0.15em] hover:tracking-[0.25em] uppercase text-brand-red bg-transparent border-none cursor-none hover:text-brand-green transition-all duration-500 ease-out transform hover:-skew-x-12 origin-left">
+      ← Volver a Proyectos
+    </button>
+
+    <!-- Center Circle Visual Area -->
+    <div class="flex-1 w-full relative flex flex-col justify-center overflow-hidden">
+      
+      <!-- Spinning rings + logo backdrop -->
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center pointer-events-none">
+        
+        <!-- Hover Gradient circle backdrop -->
+        <div id="services-circle" class="absolute rounded-full overflow-hidden transition-all duration-700 ease-in-out opacity-0 scale-95 w-[350px] h-[350px]" style="z-index: 0;"></div>
+
+        <!-- Center Initials -->
+        <div class="absolute flex items-center justify-center z-10 w-[350px] h-[350px]">
+          <span id="services-cc" class="font-sans font-extrabold tracking-[0.18em] uppercase transition-colors duration-500 select-none text-[42px] text-brand-red/25">CC</span>
+        </div>
+
+        <!-- Outer Spinning rings -->
+        <div class="absolute rounded-full border border-brand-green/40 animate-spin-cw w-[350px] h-[350px]">
+          <div class="absolute top-[-3px] left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-brand-green shadow-[0_0_10px_2px_#1BF2A3]"></div>
+        </div>
+        <div class="absolute rounded-full border border-brand-blue/20 animate-spin-ccw w-[220px] h-[220px]"></div>
+      </div>
+
+      <!-- Services List (Left Content) -->
+      <section class="w-full px-6 md:px-16 lg:px-24 max-w-4xl z-10 flex flex-col justify-center">
+        <h2 class="font-sans text-xl md:text-2xl font-black text-brand-red uppercase tracking-tight mb-8">
+          Servicios
+        </h2>
+        
+        <div class="flex flex-col gap-4 items-start select-none">
+          
+          <!-- S1 -->
+          <div class="service-item relative bg-white/60 hover:bg-white border border-brand-green/10 p-4 px-8 w-full sm:w-[360px] min-h-[56px] flex flex-col justify-center transition-all duration-300 rounded-sm cursor-none shadow-sm hover:shadow-[0_4px_20px_rgba(27,242,163,0.15)] overflow-hidden"
+               onmouseenter="onHoverService(0)" onmouseleave="onLeaveService()">
+            <div class="title font-sans font-bold text-sm text-brand-red tracking-wide transition-all duration-500">Branding</div>
+            <div class="desc text-[11px] text-gray-500 font-medium max-h-0 opacity-0 overflow-hidden transition-all duration-300">Identidades únicas y sistemas visuales contemporáneos.</div>
+          </div>
+
+          <!-- S2 -->
+          <div class="service-item relative bg-white/60 hover:bg-white border border-brand-green/10 p-4 px-8 w-full sm:w-[360px] min-h-[56px] flex flex-col justify-center transition-all duration-300 rounded-sm cursor-none shadow-sm hover:shadow-[0_4px_20px_rgba(27,242,163,0.15)] overflow-hidden"
+               onmouseenter="onHoverService(1)" onmouseleave="onLeaveService()">
+            <div class="title font-sans font-bold text-sm text-brand-red tracking-wide transition-all duration-500">Motion Graphics</div>
+            <div class="desc text-[11px] text-gray-500 font-medium max-h-0 opacity-0 overflow-hidden transition-all duration-300">Dirección de arte y animación en movimiento.</div>
+          </div>
+
+          <!-- S3 -->
+          <div class="service-item relative bg-white/60 hover:bg-white border border-brand-green/10 p-4 px-8 w-full sm:w-[360px] min-h-[56px] flex flex-col justify-center transition-all duration-300 rounded-sm cursor-none shadow-sm hover:shadow-[0_4px_20px_rgba(27,242,163,0.15)] overflow-hidden"
+               onmouseenter="onHoverService(2)" onmouseleave="onLeaveService()">
+            <div class="title font-sans font-bold text-sm text-brand-red tracking-wide transition-all duration-500">Ilustración</div>
+            <div class="desc text-[11px] text-gray-500 font-medium max-h-0 opacity-0 overflow-hidden transition-all duration-300">Narrativas gráficas, editoriales y conceptuales.</div>
+          </div>
+
+          <!-- S4 -->
+          <div class="service-item relative bg-white/60 hover:bg-white border border-brand-green/10 p-4 px-8 w-full sm:w-[360px] min-h-[56px] flex flex-col justify-center transition-all duration-300 rounded-sm cursor-none shadow-sm hover:shadow-[0_4px_20px_rgba(27,242,163,0.15)] overflow-hidden"
+               onmouseenter="onHoverService(3)" onmouseleave="onLeaveService()">
+            <div class="title font-sans font-bold text-sm text-brand-red tracking-wide transition-all duration-500">Diseño Editorial</div>
+            <div class="desc text-[11px] text-gray-500 font-medium max-h-0 opacity-0 overflow-hidden transition-all duration-300">Sistemas de retículas, maquetación y publicaciones.</div>
+          </div>
+
+          <!-- S5 -->
+          <div class="service-item relative bg-white/60 hover:bg-white border border-brand-green/10 p-4 px-8 w-full sm:w-[360px] min-h-[56px] flex flex-col justify-center transition-all duration-300 rounded-sm cursor-none shadow-sm hover:shadow-[0_4px_20px_rgba(27,242,163,0.15)] overflow-hidden"
+               onmouseenter="onHoverService(4)" onmouseleave="onLeaveService()">
+            <div class="title font-sans font-bold text-sm text-brand-red tracking-wide transition-all duration-500">Social Media</div>
+            <div class="desc text-[11px] text-gray-500 font-medium max-h-0 opacity-0 overflow-hidden transition-all duration-300">Estrategias de contenido y assets dinámicos.</div>
+          </div>
+
+          <!-- S6 -->
+          <div class="service-item relative bg-white/60 hover:bg-white border border-brand-green/10 p-4 px-8 w-full sm:w-[360px] min-h-[56px] flex flex-col justify-center transition-all duration-300 rounded-sm cursor-none shadow-sm hover:shadow-[0_4px_20px_rgba(27,242,163,0.15)] overflow-hidden"
+               onmouseenter="onHoverService(5)" onmouseleave="onLeaveService()">
+            <div class="title font-sans font-bold text-sm text-brand-red tracking-wide transition-all duration-500">Animación 2D</div>
+            <div class="desc text-[11px] text-gray-500 font-medium max-h-0 opacity-0 overflow-hidden transition-all duration-300">Storytelling tradicional y animaciones cuadro a cuadro.</div>
+          </div>
+
+        </div>
+      </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-brand-green/20 p-6 md:p-10 flex flex-col md:flex-row justify-between items-center gap-6 z-10 bg-white/95 backdrop-blur-xs">
+      <a class="font-sans text-2xl md:text-3xl font-extrabold text-brand-red hover:text-brand-green tracking-tight transition-colors duration-300 cursor-none" href="mailto:c.clavera.c@gmail.com">
+        Hablemos →
+      </a>
+
+      <div class="flex flex-col items-center md:items-end gap-3 text-center md:text-right">
+        <div class="flex gap-6">
+          <a href="mailto:c.clavera.c@gmail.com" class="font-sans text-xs font-bold text-brand-blue hover:text-brand-red transition-colors duration-300 tracking-wider uppercase cursor-none">
+            Email
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="font-sans text-xs font-bold text-brand-blue hover:text-brand-red transition-colors duration-300 tracking-wider uppercase cursor-none">
+            Instagram
+          </a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="font-sans text-xs font-bold text-brand-blue hover:text-brand-red transition-colors duration-300 tracking-wider uppercase cursor-none">
+            LinkedIn
+          </a>
+        </div>
+        <div class="font-sans text-[11px] font-bold text-brand-blue tracking-wide">
+          2026 © Camilo Clavera — Montevideo, Uruguay
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- INTERACTIVE FUNCTIONALITIES SCRIPTS -->
+  <script type="text/javascript">
+    // Load Unicorn Studio Script
+    !function(){var u=window.UnicornStudio;if(u&&u.init){if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",function(){u.init()})}else{u.init()}}else{window.UnicornStudio={isInitialized:!1};var i=document.createElement("script");i.src="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v2.2.6/dist/unicornStudio.umd.js",i.onload=function(){if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",function(){UnicornStudio.init()})}else{UnicornStudio.init()}},(document.head||document.body).appendChild(i)}}();
+
+    // App Navigation States
+    // 'hero' | 'projects' | 'services'
+    let activeState = 'hero';
+    let isPeeking = false;
+    let isAnimating = false;
+
+    const panelHero = document.getElementById('panel-hero');
+    const panelProjects = document.getElementById('panel-projects');
+    const panelServices = document.getElementById('panel-services');
+    const backgroundContainer = document.getElementById('background-container');
+    const navSystem = document.getElementById('nav-system');
+
+    function lockAnimation() {
+      isAnimating = true;
+      setTimeout(() => { isAnimating = false; }, 850);
+    }
+
+    function goToHero() {
+      if (isAnimating) return;
+      lockAnimation();
+      activeState = 'hero';
+      isPeeking = false;
+
+      // Update layouts
+      panelHero.style.opacity = '1';
+      panelHero.style.transform = 'scale(1)';
+      panelHero.style.pointerEvents = 'auto';
+
+      panelProjects.style.top = '100vh';
+      panelProjects.style.opacity = '1';
+      panelProjects.style.borderRadius = '12px';
+
+      panelServices.classList.add('translate-y-full');
+      backgroundContainer.style.opacity = '1';
+      navSystem.style.opacity = '1';
+      navSystem.style.transform = 'translateY(0)';
+    }
+
+    function goToProjects() {
+      if (isAnimating) return;
+      lockAnimation();
+      activeState = 'projects';
+      isPeeking = false;
+
+      // Update layouts
+      panelHero.style.opacity = '0';
+      panelHero.style.transform = 'scale(0.9)';
+      panelHero.style.pointerEvents = 'none';
+
+      panelProjects.style.top = '0vh';
+      panelProjects.style.opacity = '1';
+      panelProjects.style.borderRadius = '0px';
+
+      panelServices.classList.add('translate-y-full');
+      backgroundContainer.style.opacity = '0';
+      navSystem.style.opacity = '0';
+      navSystem.style.transform = 'translateY(-40px)';
+    }
+
+    function goToServices() {
+      if (isAnimating) return;
+      lockAnimation();
+      activeState = 'services';
+
+      // Update layouts
+      panelHero.style.opacity = '0';
+      panelHero.style.transform = 'scale(0.9)';
+      panelHero.style.pointerEvents = 'none';
+
+      panelProjects.style.top = '-100vh';
+      panelProjects.style.opacity = '0';
+
+      panelServices.classList.remove('translate-y-full');
+      backgroundContainer.style.opacity = '1';
+      navSystem.style.opacity = '0';
+      navSystem.style.transform = 'translateY(-40px)';
+    }
+
+    // Scroll Wheel event transitions
+    window.addEventListener('wheel', (e) => {
+      if (isAnimating) return;
+      const isDown = e.deltaY > 0;
+
+      if (activeState === 'hero') {
+        if (isDown) {
+          if (!isPeeking) {
+            isPeeking = true;
+            panelProjects.style.top = '88vh';
+            panelHero.style.transform = 'translateY(-40px)';
+            setTimeout(() => {
+              if (activeState === 'hero') {
+                isPeeking = false;
+                panelProjects.style.top = '100vh';
+                panelHero.style.transform = 'translateY(0)';
+              }
+            }, 1500);
+          } else {
+            goToProjects();
+          }
+        }
+      } else if (activeState === 'projects') {
+        const el = document.getElementById('projects-scroll-wrapper');
+        if (isDown) {
+          const isAtBottom = el.scrollTop + el.clientHeight >= el.scrollHeight - 5;
+          if (isAtBottom) goToServices();
+        } else {
+          if (el.scrollTop <= 0) goToHero();
+        }
+      } else if (activeState === 'services') {
+        if (!isDown) goToProjects();
+      }
+    }, { passive: true });
+
+    // Custom Cursor lerp
+    const cursor = document.getElementById('custom-cursor');
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let currentX = mouseX;
+    let currentY = mouseY;
+
+    window.addEventListener('mousemove', (e) => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    function updateCursor() {
+      currentX += (mouseX - currentX) * 0.45;
+      currentY += (mouseY - currentY) * 0.45;
+      cursor.style.left = `${currentX}px`;
+      cursor.style.top = `${currentY}px`;
+      requestAnimationFrame(updateCursor);
+    }
+    updateCursor();
+
+    // Global cursor interactions
+    document.addEventListener('mousedown', () => {
+      cursor.style.transform = 'translate(-50%, -50%) scale(0.8)';
+    });
+    document.addEventListener('mouseup', () => {
+      cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+    });
+
+    // Custom Navigation collapsible Logo
+    const interactiveLogo = document.getElementById('interactive-logo');
+    const camiloLetters = document.getElementById('logo-camilo');
+    const claveraLetters = document.getElementById('logo-clavera');
+    const calleroLetters = document.getElementById('logo-callero');
+
+    function collapseLogo() {
+      camiloLetters.style.maxHeight = '0';
+      camiloLetters.style.opacity = '0';
+      camiloLetters.style.marginTop = '0';
+      claveraLetters.style.maxHeight = '0';
+      claveraLetters.style.opacity = '0';
+      claveraLetters.style.marginTop = '0';
+      calleroLetters.style.maxHeight = '0';
+      calleroLetters.style.opacity = '0';
+      calleroLetters.style.marginTop = '0';
+    }
+
+    function expandLogo() {
+      camiloLetters.style.maxHeight = '160px';
+      camiloLetters.style.opacity = '1';
+      camiloLetters.style.marginTop = '4px';
+      claveraLetters.style.maxHeight = '160px';
+      claveraLetters.style.opacity = '1';
+      claveraLetters.style.marginTop = '4px';
+      calleroLetters.style.maxHeight = '160px';
+      calleroLetters.style.opacity = '1';
+      calleroLetters.style.marginTop = '4px';
+    }
+
+    interactiveLogo.addEventListener('mouseenter', expandLogo);
+    interactiveLogo.addEventListener('mouseleave', () => {
+      setTimeout(collapseLogo, 1000);
+    });
+    // Start collapsed after initial delay
+    setTimeout(collapseLogo, 2500);
+
+    // Parallax text tilt in Hero
+    const parallaxText = document.getElementById('parallax-text');
+    window.addEventListener('mousemove', (e) => {
+      if (activeState !== 'hero') return;
+      const x = (e.clientX / window.innerWidth) - 0.5;
+      const y = (e.clientY / window.innerHeight) - 0.5;
+      
+      const rotateX = y * -20;
+      const rotateY = x * 20;
+      const transX = x * 40;
+      const transY = y * 40;
+      
+      parallaxText.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) translate3d(${transX}px, ${transY}px, 0px)`;
+    });
+
+    // Services page interactivity
+    const servicesGradients = [
+      'radial-gradient(circle at 40% 40%, #D93E30, #222)',
+      'radial-gradient(circle at 60% 35%, #1BF2A3, #222)',
+      'radial-gradient(circle at 35% 55%, #699EBF, #222)',
+      'radial-gradient(circle at 55% 45%, #D93E30, #699EBF)',
+      'radial-gradient(circle at 45% 60%, #1BF2A3, #699EBF)',
+      'radial-gradient(circle at 50% 30%, #D93E30, #1BF2A3)'
+    ];
+
+    const servicesCircle = document.getElementById('services-circle');
+    const servicesCc = document.getElementById('services-cc');
+
+    function onHoverService(index) {
+      servicesCircle.style.background = servicesGradients[index];
+      servicesCircle.style.opacity = '1';
+      servicesCircle.style.transform = 'scale(1)';
+      servicesCc.style.color = 'rgba(255,255,255,0.95)';
+      
+      const items = document.querySelectorAll('.service-item');
+      items.forEach((item, idx) => {
+        if (idx === index) {
+          item.querySelector('.title').style.letterSpacing = '0.2em';
+          item.querySelector('.title').style.transform = 'skewX(-12deg)';
+          item.querySelector('.title').style.color = '#1BF2A3';
+          const desc = item.querySelector('.desc');
+          desc.style.maxHeight = '50px';
+          desc.style.opacity = '1';
+          desc.style.marginTop = '4px';
+        }
+      });
+    }
+
+    function onLeaveService() {
+      servicesCircle.style.opacity = '0';
+      servicesCircle.style.transform = 'scale(0.95)';
+      servicesCc.style.color = 'rgba(217, 62, 48, 0.25)';
+      
+      const items = document.querySelectorAll('.service-item');
+      items.forEach((item) => {
+        item.querySelector('.title').style.letterSpacing = 'normal';
+        item.querySelector('.title').style.transform = 'none';
+        item.querySelector('.title').style.color = '#D93E30';
+        const desc = item.querySelector('.desc');
+        desc.style.maxHeight = '0';
+        desc.style.opacity = '0';
+        desc.style.marginTop = '0';
+      });
+    }
+
+    // Scramble Text effect on title hover
+    const scrambleElements = document.querySelectorAll('.scramble-hover');
+    scrambleElements.forEach(el => {
+      const originalText = el.getAttribute('data-text');
+      const chars = '!<>-_\\/[]{}—=+*^?#________';
+      let interval = null;
+
+      el.addEventListener('mouseenter', () => {
+        let iteration = 0;
+        clearInterval(interval);
+        
+        interval = setInterval(() => {
+          el.innerText = originalText
+            .split("")
+            .map((char, index) => {
+              if(index < iteration) {
+                return originalText[index];
+              }
+              return chars[Math.floor(Math.random() * chars.length)]
+            })
+            .join("");
+          
+          if(iteration >= originalText.length){ 
+            clearInterval(interval);
+          }
+          iteration += 1 / 3;
+        }, 30);
+      });
+
+      el.addEventListener('mouseleave', () => {
+        clearInterval(interval);
+        el.innerText = originalText;
+      });
+    });
+  </script>
+</body>
+</html>
